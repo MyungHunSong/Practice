@@ -21,7 +21,7 @@ public class Lotto {
 		 Arrays.sort(win_nums);
 		 
 		 for(int i = 0; i < lottos.length; i++) {
-			 //¾Ë¾Æ º¼ ¼ö ¾ø´Â ¹øÈ£
+			 //ë¨¸ì—¬ ì‹œë°œ
 			 if(lottos[i] == 0) {
 				 zeroCount++;
 				 continue;
@@ -35,8 +35,8 @@ public class Lotto {
 			 }
 		 }
 		 
-		 answer[0] = getRank(match + zeroCount); // ¾Ë¾Æº¼ ¼ö ¾ø´Â ¹øÈ£°¡ ¸ðµÎ ´çÃ·¹øÈ£¿Í ÀÏÄ¡ ÇÒ¶§.
-		 answer[1] = getRank(match); // ¾Ë¾Æº¼ ¼ö ¾ø´Â ¹øÈ£°¡ ¸ðµÎ ´çÃ· ¹øÈ£¿Í ºÒÀÏÄ¡ÇÒ °æ¿ì
+		 answer[0] = getRank(match + zeroCount); 
+		 answer[1] = getRank(match); 
 		 
 	     return answer;
 	    }
