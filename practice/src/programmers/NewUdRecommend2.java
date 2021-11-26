@@ -2,8 +2,27 @@ package programmers;
 
 public class NewUdRecommend2 {
 	public static void main(String[] args) {
-		String id = "...!@BaT#*..y.abcdefghijklmmmm";
+		String id = "...!@BaT#*..y.abcdefghijkl";
+		System.out.println("chartAt(id)" + id.charAt(0) );
 		System.out.println(soultion(id));
+		
+		for (int i = 0; i < id.length(); i++) { 
+			if (id.charAt(i) == '.') { 
+				int j = i + 1;
+				String dot = ".";
+				System.out.println("here is J : " + j);
+
+				while (j != id.length() && id.charAt(j) == '.') {
+					dot += ".";
+					System.out.println("here is dot : " + dot);
+					j++;
+				} // while 문
+
+				if (dot.length() > 1) 
+					id = id.replace(dot, ".");
+
+			} // if문
+		} // for문
 	}
 	
 	public static String soultion(String new_id) {
