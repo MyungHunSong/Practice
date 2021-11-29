@@ -1,6 +1,6 @@
 package programmers;
 
-public class NewUdRecommend2 {
+public class NewIdRecommend2 {
 	public static void main(String[] args) {
 		String id = "...!@BaT#*..y.abcdefghijkl";
 		System.out.println("chartAt(id)" + id.charAt(0) );

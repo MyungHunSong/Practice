@@ -1,6 +1,6 @@
 package programmers;
 
-public class NewRecommendId3 {
+public class NewIdRecommend3 {
 	// 정규 식을 사용하여 문제 풀기
 	
 	public static void main(String[] args) {
