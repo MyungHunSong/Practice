@@ -1,4 +1,4 @@
-package programmers;
+package programmerslv1;
 
 public class NewIdRecommend3 {
 	// 정규 식을 사용하여 문제 풀기

@@ -1,4 +1,4 @@
-package programmers;
+package programmerslv1;
 
 public class NewIdRecommend2 {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package programmers;
+package programmerslv1;
 
 public class NewIdRecommend {
 	// 문제 규칙.
