@@ -26,9 +26,12 @@ public class NewIdRecommend {
 
 	public static String soultion(String new_id) {
 		new_id = new_id.toLowerCase(); // 소문자로 변경
+		System.out.println(new_id);
+		
+		
+		String id = ""; // 사용할 그릇
 
 		// 2번 규칙 소문자 숫자 -_. 제외한 모든 문자 제거
-		String id = "";
 		for (int i = 0; i < new_id.length(); i++) {
 			char ch = new_id.charAt(i);
 
@@ -36,7 +39,7 @@ public class NewIdRecommend {
 			if (ch >= 'a' && ch <= 'z') {
 				id += String.valueOf(ch);
 			} else if (ch >= '0' && ch <= '9') {
-				id += String.valueOf(ch);
+				id  += String.valueOf(ch);
 			} else if (ch == '.' || ch == '-' || ch == '_') {
 				id += String.valueOf(ch);
 			}
@@ -50,12 +53,12 @@ public class NewIdRecommend {
 
 				while (j != id.length() && id.charAt(j) == '.') {
 					dot += ".";
-					j++;
+					j++;					
+
 				} // while 문
-
+				
 				if (dot.length() > 1) 
-					id = id.replace(dot, ".");
-
+					id = id.replace(dot, "."); 
 			} // if문
 		} // for문
 		
@@ -84,7 +87,7 @@ public class NewIdRecommend {
 			id = id + last + last;
 		}
 
-		return new_id;
+		return id;
 	}
 
 }

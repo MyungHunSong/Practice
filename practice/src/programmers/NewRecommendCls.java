@@ -1,98 +1,81 @@
 package programmers;
 
-public class NewRecommendCls {
-	String new_id;
+class NewRecommendCls {
+	String id;
 
-	public NewRecommendCls() {}
-
-	public NewRecommendCls(String new_id) {
+	public NewRecommendCls() {
 		super();
-		this.new_id = new_id;
 	}
-
-	public String getNew_id() {
-		return new_id;
+	
+	public NewRecommendCls(String id) {
+		this.id = id;
 	}
+	
+	//1번 규칙 소문자로
+	public NewRecommendCls replaceToLowerCase() {
+		id = id.toLowerCase();
+		return this;
+	}
+	
+	//2번 규칙 알파벳, 숫자, ., _, - 제외 다 없애기
+	public NewRecommendCls filter() {
+		id = id.replaceAll("[^-_.a-z0-9]", "");
+		return this;
+	}
+	
+	//3번 규칙 중첩된 .를 하나로
+	public NewRecommendCls toSingleDot() {
+		id = id.replaceAll("[.]{2,}", ".");	
+		return this;
+	}
+	
+	//4번 규칙 처음. 과 끝. 일때 삭제해돌라
+	public NewRecommendCls noStartEndDot() {
+		id = id.replaceAll("^[.]|[.]$", "");
+		
+		return this;
+	}
+	
+	//5번 규칙 만약 비어 있다면 a를 추가해돌라 아니면 id리턴
+	public NewRecommendCls noBlank() {
+		id = id.isEmpty() ? "a" : id;
 
-	public void setNew_id(String new_id) {
-		
-		
-		new_id = new_id.toLowerCase(); //1번 규칙 대문자 -> 소문자
-		
-		String id = "";
-		
-		//2번 규칙 알파벳 소문자, 숫자, -, _, . 를 제외한 모든 문자를 제거
-		for(int i = 0; i < id.length(); i++) {
-			char j = id.charAt(i);
-		
-		// String.valueOf 는 null값이면 null값으로 무조건 String으로 찍어준다.	
-			if('a' <= j && j <= 'z') {
-				id += String.valueOf(j); 
-			} else if ('0' <= j && j <= '9') {
-				id += String.valueOf(j);
-			} else if (j == '.' || j == '-' || j == '_') {
-				id += String.valueOf(j);
-			}
-		}
-		
-		//3번 규칙 new_id에 마침표가 2번 이상 연속된 부분을 하나의 마침효로 치환
-		for(int i = 0; i< id.length(); i++) {
-			if(id.charAt(i) == '.') {
-				int j = i + 1;
-					
-				// while문으로 풀이
-			 String dot = ".";	
-				while( j != id.length() && id.charAt(j) == '.') {
-					dot += ".";
-					j++;
-				}
-				
-			/*String dot;
-			for(dot = "."; (j != id.length() && id.charAt(j) == '.'); j++){
-				dot += ".";
-			}
-			
-			if(dot.length() >= 2) {
-				id = id.replace(dot, ".");
-			}
-			
-			}*/
-			}
-		}		
-		
-		//4번 규칙 첫번째, 마지막 . 제거
-		// substring 문자열 자르기 substring(start) substring(start, end)
-		if(id.startsWith(".")) {
-			id = id.substring(1, id.length());
-		}else if(id.endsWith(".")) {
-			id = id.substring(0, id.length() - 1);
-		}
-		
-		//5번 규칙 빈 문자열 이라면 a대입
-		if(id.length() == 0) {
-			id += "a";
-		}
-		
-		//6번 규칙 16자 이상이면, 15자만 남김
+		return this;
+	}
+	
+	//6번 규칙 16이상이면 15로 바꿔돌라.
+	public NewRecommendCls noMuchThen16() {
 		if(id.length() >= 16) {
 			id = id.substring(0, 15);
 		}
 		
-		//7번 규칙 2자 이하라면 마지막 문자 길이 3까지 반복해서 끝에 붙임
+		id = id.replaceAll("[.]$", "");
+		
+		return this;
+	}
+	
+	//7번 규칙 id가 2자 이하라면 3이댈때까지 뒷자리를 그대로 복사해서 붙여달라.
+	public NewRecommendCls noLessThan2() {
 		String last = id.charAt(id.length() - 1) + "";
-		if(id.length() == 2){
+				
+		
+		if (id.length() == 2) {
 			id = id + last;
 		} else if (id.length() == 1) {
 			id = id + last + last;
 		}
 		
-		this.new_id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "NewRecommendCls [new_id=" + new_id + "]";
+		
+		
+//		StringBuilder sBuilder = new StringBuilder();
+//		while (sBuilder.length() <= 2) {
+//            sBuilder.append(sBuilder.charAt(sBuilder.length() - 1));
+//        }
+//        id = sBuilder.toString();
+        return this;
 	}
 	
-	
+	public String getResult() {
+		return id;
+	}
 }

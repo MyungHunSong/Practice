@@ -5,13 +5,17 @@ public class MainSolution {
 	public static void main(String[] args) {
 		
 		String id = "...!@BaT#*..y.abcdefghijklm";
-		NewRecommendCls nrc = new NewRecommendCls();
+		String answer = new NewRecommendCls(id)
+				.filter()
+				.toSingleDot()
+				.noStartEndDot()
+				.noBlank()
+				.noMuchThen16()
+				.noLessThan2()
+				.getResult();
 		
-		nrc.setNew_id(id);
-		
-		
-		
-		System.out.println("hereAnser : "  + nrc.getNew_id());
+		System.out.println("답 : " + answer);
+		 	
 	}
 
 }
