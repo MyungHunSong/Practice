@@ -12,31 +12,40 @@ public class Lotto {
 	}
 
 	 public int[] solution(int[] lottos, int[] win_nums) {
+		 // lottos는 길이 6인 정수배열
+		 // lottos의 모든 원소는 0이상 45이하의 정수
+		 // *0은 알아볼 수 없는 숫자를 의미,
+		 // *0을 제외한 다른 숫자들은 lottos에 2개 이상 담겨있지 않음
+		 // *lottos의 원소들은 정렬되어 있지 않을 수도 있습.
 		 
 		 int[] answer = new int[2];
 		 int match = 0;
 		 int zeroCount = 0;
 		 
 		 Arrays.sort(lottos);
-		 Arrays.sort(win_nums);
+		 Arrays.sort(win_nums); 
 		 
 		 for(int i = 0; i < lottos.length; i++) {
-			 //머여 시발
 			 if(lottos[i] == 0) {
 				 zeroCount++;
+				 System.out.println("lotto zeroCount >>" + zeroCount);
 				 continue;
 			 }
 			 
 			 for(int j = 0; j < win_nums.length; j++) {
 				 if(lottos[i] == win_nums[j]) {
 					 match++;
+				System.out.println("win_nums match >>" + match);
 					 break;
 				 }
 			 }
 		 }
 		 
 		 answer[0] = getRank(match + zeroCount); 
+		 System.out.println("answer[0] => getRank(match + zeroCount) >> " + getRank(match + zeroCount));
 		 answer[1] = getRank(match); 
+		 System.out.println("answer[1] => getRank(match) >> " + getRank(match));
+		 
 		 
 	     return answer;
 	    }
