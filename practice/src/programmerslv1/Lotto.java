@@ -10,7 +10,7 @@ public class Lotto {
 		
 		System.out.println("sol1" + Arrays.toString(lotto.solution(new int[] {44, 1, 0, 0, 31, 25}, new int[]{31, 10, 45, 1, 6, 19})));
 	}
-
+ 
 	 public int[] solution(int[] lottos, int[] win_nums) {
 		 // lottos는 길이 6인 정수배열
 		 // lottos의 모든 원소는 0이상 45이하의 정수
